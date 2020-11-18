@@ -1,0 +1,14 @@
+@import "clock.css";
+@import "reset.css";
+
+header {
+  margin: 50px;
+  font-size: 80px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

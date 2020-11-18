@@ -1,0 +1,15 @@
+.clock {
+  margin-top: 40px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.clock .clock_hours,
+.clock .clock_minutes {
+  font-size: 60px;
+  margin-right: 10px;
+}
+
+.clock .clock_seconds {
+  font-size: 40px;
+}
