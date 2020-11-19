@@ -1,5 +1,7 @@
 @import "clock.css";
 @import "reset.css";
+@import "askName.css";
+@import "toDos.css";
 
 header {
   margin: 50px;

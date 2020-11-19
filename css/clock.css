@@ -1,7 +1,18 @@
 .clock {
   margin-top: 40px;
+}
+
+.clock .clock_time {
   display: flex;
   align-items: flex-end;
+}
+
+.clock .clock_day {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  font-size: 24px;
+  font-style: italic;
 }
 
 .clock .clock_hours,

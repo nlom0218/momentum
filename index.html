@@ -9,10 +9,29 @@
 <body>
     <header>Hello world</header>
     <div id="js-clock", class="clock">
-        <div class="js-clock-hours clock_hours"></div>
-        <div class="js-clock-minutes clock_minutes"></div>
-        <div class="js-clock-seconds clock_seconds"></div>
+        <div class="clock_time">
+            <div class="js-clock-hours clock_hours"></div>
+            <div class="js-clock-minutes clock_minutes"></div>
+            <div class="js-clock-seconds clock_seconds"></div>
+        </div>
+        <div class="js-clock-day clock_day"></div>
     </div>
+    <div class="askName">
+        <form id="js-askNameForm">
+            <input type="text" placeholder="이름을 입력해 주세요.">
+        </form>
+        <div class="js-greeting askName_content"></div>
+        <button class="js-delNameBtn askName_delBtn">X</button>
+    </div>
+    <div class="toDos">
+        <form id="js-toDosForm" class="toDos_form">
+            <input type="text" placeholder="오늘 할 일을 적으세요.">
+        </form>
+    </div> 
+    <ul class="js-toDoList toDoList">
+    </ul>
     <script src="./js/clock.js"></script>
+    <script src="./js/askName.js"></script>
+    <script src="./js/toDos.js"></script>
 </body>
-</html>
+</html> 
