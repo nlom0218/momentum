@@ -1,37 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/index.css">
     <title>Momentum App</title>
 </head>
+
 <body>
-    <header>Hello world</header>
-    <div id="js-clock", class="clock">
-        <div class="clock_time">
-            <div class="js-clock-hours clock_hours"></div>
-            <div class="js-clock-minutes clock_minutes"></div>
-            <div class="js-clock-seconds clock_seconds"></div>
+    <div class="first-colume">
+        <div class="settingArea">
+            <div class="settingIcon"><i id="js-settingIcon" class="fas fa-cog"></i></div>
+            <ul id="js-settingList" class="settingList hiding">
+                <li id="js-clock-settingItem" class="settingItem">시계설정</li>
+                <li class="settingItem">배경설정</li>
+                <li class="settingItem">글씨설정</li>
+                <li class="settingItem">이모지설정</li>
+            </ul>
         </div>
-        <div class="js-clock-day clock_day"></div>
     </div>
-    <div class="askName">
-        <form id="js-askNameForm">
-            <input type="text" placeholder="이름을 입력해 주세요.">
-        </form>
-        <div class="js-greeting askName_content"></div>
-        <button class="js-delNameBtn askName_delBtn">X</button>
+    <div class="main-colume">
+        <div id="js-clock" , class="clock">
+            <div class="clock_time">
+                <div id="시" class="js-clock-hours clock_hours"></div>
+                <div id="분" class="js-clock-minutes clock_minutes"></div>
+                <div id="초" class="js-clock-seconds clock_seconds"></div>
+            </div>
+            <div id="날짜&요일" class="js-clock-day clock_day"></div>
+        </div>
+        <div class="askName">
+            <form id="js-askNameForm">
+                <input type="text" placeholder="이름을 입력해 주세요.">
+            </form>
+            <div class="js-greeting askName_content"></div>
+            <button class="js-delNameBtn askName_delBtn">X</button>
+        </div>
+        <div class="toDos">
+            <form id="js-toDosForm" class="toDos_form">
+                <input type="text" placeholder="오늘 할 일을 적으세요.">
+            </form>
+        </div>
+        <ul class="js-toDoList toDoList">
+        </ul>
     </div>
-    <div class="toDos">
-        <form id="js-toDosForm" class="toDos_form">
-            <input type="text" placeholder="오늘 할 일을 적으세요.">
-        </form>
-    </div> 
-    <ul class="js-toDoList toDoList">
-    </ul>
+    <div id="lastColume" class="last-colume">
+        <div id="js-clockSetting" class="clockSetting hiding">
+            <div class="settingName">시계설정하기</div>
+            <div class="change24Hours">
+                <div class="change24Hours_title">
+                    <span>24시/12시</span>
+                    <div class="change24Hours_title_icon">
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="changeColor">
+                <div class="changeColor_title">
+                    <span>색상바꾸기</span>
+                    <div class="changeColor_title_icon">
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                </div>
+                <div class="changeColor_order hiding">
+                    <ul class="selectValue">
+                        <li class="selectValue_item">시</li>
+                        <li class="selectValue_item">분</li>
+                        <li class="selectValue_item">초</li>
+                        <li class="selectValue_item">날짜&요일</li>
+                    </ul>
+                    <div class="changeColor_explanMethod"></div>
+                    <ul class="varietyColor">
+                        <li class="varietyColor_item" style="background-color:green;"></li>
+                        <li class="varietyColor_item" style="background-color: red;"></li>
+                        <li class="varietyColor_item" style="background-color: blue;"></li>
+                        <li class="varietyColor_item" style="background-color: yellow;"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clock-button">
+                <button class="clock-doneBtn">완료</button>
+                <button class="clock-resetBtn">초기화</button>
+            </div>
+            
+        </div>
+    </div>
+
     <script src="./js/clock.js"></script>
     <script src="./js/askName.js"></script>
     <script src="./js/toDos.js"></script>
+    <script src="./js/bgImg.js"></script>
+    <script src="./js/clockSetting.js"></script>
 </body>
-</html> 
+
+</html>

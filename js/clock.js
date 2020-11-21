@@ -11,7 +11,7 @@ getHours = (currentDate) => {
   //   } else {
   //     $hours.innerText = `${hours}:`;
   //   }
-  $hours.innerText = `${hours < 10 ? `0${hours}:` : `${hours}:`}`;
+  $hours.innerText = `${hours < 10 ? `0${hours}` : `${hours}`}`;
 };
 getMinutes = (currentDate) => {
   const minutes = currentDate.getMinutes();

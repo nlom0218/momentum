@@ -2,24 +2,46 @@ const $toDosForm = document.querySelector("#js-toDosForm");
 const $toDos = $toDosForm.querySelector("input");
 const $toDoList = document.querySelector(".js-toDoList");
 
-const toDos = [];
+let toDos = [];
 
 saveToDos = () => {
   localStorage.setItem("toDos", JSON.stringify(toDos));
+};
+
+handleDelToDoBtn = (e) => {
+  const li = e.target.parentNode;
+  $toDoList.removeChild(li);
+  const newToDos = toDos.filter((item) => {
+    return item.id !== Number(li.id);
+  });
+  toDos = newToDos;
+  saveToDos();
 };
 
 creatToDoList = (toDo) => {
   const li = document.createElement("li");
   const delBtn = document.createElement("button");
   const text = document.createElement("div");
+  const emoji = document.createElement("div");
+  const liId = toDos.length + 1;
+  li.id = liId;
+  delBtn.addEventListener("click", handleDelToDoBtn);
   text.innerText = toDo;
   delBtn.innerText = "X";
-  delBtn.classList.add("js-delToDoBtn", "toDos_delBtn");
+  emoji.innerText = "👉";
+  text.classList.add("toDoList_text");
+  delBtn.classList.add("js-delToDoBtn", "toDoList_delBtn");
+  emoji.classList.add("toDoList_emoji");
+  li.appendChild(emoji);
   li.appendChild(text);
   li.appendChild(delBtn);
   li.classList.add("toDoList_toDo");
   $toDoList.appendChild(li);
-  toDos.push(toDo);
+  toDoObj = {
+    text: toDo,
+    id: liId,
+  };
+  toDos.push(toDoObj);
   saveToDos();
 };
 
@@ -27,15 +49,11 @@ handleToDoSumit = (e) => {
   e.preventDefault();
   const toDo = $toDos.value;
   $toDos.value = "";
-  if (toDos.indexOf(toDo) !== -1) {
-    alert("이미 있는 내용입니다! 다른 내용을 적어주세요!");
-    return;
-  }
   creatToDoList(toDo);
 };
 
 putToDoList = (item) => {
-  creatToDoList(item);
+  creatToDoList(item.text);
 };
 
 hasToDos = () => {
@@ -45,18 +63,8 @@ hasToDos = () => {
   }
 };
 
-handleRemoveToDo = (e) => {
-  if (e.target.nodeName !== "BUTTON") return;
-  $toDoList.removeChild(e.target.parentNode);
-  const toDo = e.target.parentNode.firstChild.innerText;
-  const toDoIndex = toDos.indexOf(toDo);
-  toDos.splice(toDoIndex, 1);
-  saveToDos();
-};
-
 function init() {
   $toDosForm.addEventListener("submit", handleToDoSumit);
-  $toDoList.addEventListener("click", handleRemoveToDo);
   hasToDos();
 }
 

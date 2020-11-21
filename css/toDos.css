@@ -1,41 +1,47 @@
 .toDos {
-  margin-top: 50px;
+  display: flex;
+  justify-content: center;
   margin-bottom: 40px;
 }
 
 .toDos .toDos_form input {
-  font-size: 18px;
-  width: 200px;
+  font-size: 22px;
+  font-weight: 700;
+  width: 250px;
   height: 20px;
   padding: 10px 10px;
-  border-right: none;
-  border-left: none;
-  border-top: none;
-  border-bottom: 2px solid black;
+  border: none;
   outline: none;
   text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
 }
 
 .toDoList_toDo {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   margin-bottom: 20px;
 }
 
-.toDoList .toDoList_toDo div {
-  font-size: 20px;
+.toDoList .toDoList_toDo .toDoList_text {
+  font-size: 24px;
   font-weight: 600;
-  width: 400px;
+  width: 500px;
 }
 
-.toDoList_toDo .toDos_delBtn {
-  color: #fec8c1;
-  font-size: 12px;
+.toDoList_toDo .toDoList_delBtn {
+  color: #ff5d48;
+  font-size: 16px;
   font-weight: 600;
   border-radius: 50%;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
   border: none;
   outline: none;
   cursor: pointer;
+}
+
+.toDoList_toDo .toDoList_emoji {
+  margin-right: 10px;
+  font-size: 20px;
 }
