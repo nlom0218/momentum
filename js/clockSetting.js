@@ -5,11 +5,31 @@ const $clockSetting = document.querySelector("#js-clockSetting");
 const $changeColorTitle = document.querySelector(".changeColor_title");
 const $changeColorOrder = document.querySelector(".changeColor_order");
 const $selectValue = document.querySelector(".selectValue");
+const $selectValueItem = document.querySelectorAll(".selectValue_item");
 const $varietyColor = document.querySelector(".varietyColor");
 const $clockDoneBtn = document.querySelector(".clock-doneBtn");
 const $clockResetBtn = document.querySelector(".clock-resetBtn");
+const $change24HoursTitle = document.querySelector(".change24Hours_title");
 
 let selectedValue = [];
+
+closedSettingBar = () => {
+  $changeColorOrder.classList.add("hiding");
+  $change24HoursBtn.classList.add("hiding");
+  document.querySelector(
+    ".change24Hours_title_icon"
+  ).innerHTML = `<i class="fas fa-caret-down"></i>`;
+  document.querySelector(
+    ".changeColor_title_icon"
+  ).innerHTML = `<i class="fas fa-caret-down"></i>`;
+};
+
+resetSelectValueItem = () => {
+  [...$selectValueItem].forEach((item) => {
+    item.classList.remove("selected");
+  });
+  selectedValue = [];
+};
 
 paintDate = (value) => {
   value.forEach((item) => {
@@ -61,9 +81,11 @@ handleClickSettingIcon = () => {
     $clockSetting.classList.add("hiding");
     document.querySelector("#js-clock-settingItem").style.fontWeight = 500;
   }
+  closedSettingBar();
+  resetSelectValueItem();
 };
 
-handleClickChangeColorOrder = () => {
+handleClickChangeColorTitle = () => {
   if ($changeColorOrder.classList.contains("hiding")) {
     $changeColorOrder.classList.remove("hiding");
     document.querySelector(
@@ -73,6 +95,21 @@ handleClickChangeColorOrder = () => {
     $changeColorOrder.classList.add("hiding");
     document.querySelector(
       ".changeColor_title_icon"
+    ).innerHTML = `<i class="fas fa-caret-down"></i>`;
+    resetSelectValueItem();
+  }
+};
+
+handleClickChange24HoursTitle = () => {
+  if ($change24HoursBtn.classList.contains("hiding")) {
+    $change24HoursBtn.classList.remove("hiding");
+    document.querySelector(
+      ".change24Hours_title_icon"
+    ).innerHTML = `<i class="fas fa-caret-up"></i>`;
+  } else {
+    $change24HoursBtn.classList.add("hiding");
+    document.querySelector(
+      ".change24Hours_title_icon"
     ).innerHTML = `<i class="fas fa-caret-down"></i>`;
   }
 };
@@ -85,6 +122,8 @@ clockSetting = (e) => {
   } else {
     $clockSetting.classList.add("hiding");
     settingItem.style.fontWeight = 500;
+    closedSettingBar();
+    resetSelectValueItem();
   }
 };
 
@@ -114,6 +153,8 @@ hasLocalStorageDateColor = () => {
 handleClickClockDoneBtn = () => {
   $clockSetting.classList.add("hiding");
   document.querySelector("#js-clock-settingItem").style.fontWeight = 500;
+  resetSelectValueItem();
+  closedSettingBar();
 };
 
 handleClickClockResetBtn = () => {
@@ -129,6 +170,9 @@ handleClickClockResetBtn = () => {
   localStorage.setItem("분", "black");
   localStorage.setItem("초", "black");
   localStorage.setItem("날짜&요일", "black");
+  [...$selectValueItem].forEach((item) => {
+    item.classList.remove("selected");
+  });
 };
 
 function init() {
@@ -136,7 +180,7 @@ function init() {
   // 설정아이콘 누르기
   $settingList.addEventListener("click", handleClickSettingList);
   // 설정목록 누르기
-  $changeColorTitle.addEventListener("click", handleClickChangeColorOrder);
+  $changeColorTitle.addEventListener("click", handleClickChangeColorTitle);
   // 색상바꾸기 누르기
   $selectValue.addEventListener("click", handleClickSelectValue);
   // 색상바꾸기의 시, 분, 초, 날짜 및 요일 누르기
@@ -146,5 +190,7 @@ function init() {
   //
   $clockDoneBtn.addEventListener("click", handleClickClockDoneBtn);
   $clockResetBtn.addEventListener("click", handleClickClockResetBtn);
+  //
+  $change24HoursTitle.addEventListener("click", handleClickChange24HoursTitle);
 }
 init();

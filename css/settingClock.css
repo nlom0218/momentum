@@ -80,3 +80,32 @@
   color: #f4f4f8;
   border-radius: 10px;
 }
+
+.change24Hours_order {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.change24Hours_order button {
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #f4f4f8;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px 10px;
+}
+
+.change24Hours_order .btn24 {
+  background-color: #ee4035;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.change24Hours_order .btn12 {
+  background-color: #f37736;
+}
