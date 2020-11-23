@@ -53,6 +53,7 @@ handleClickVarietyColor = (e) => {
     localStorage.setItem(item.value, item.color);
   });
   paintDate(selectedValue);
+  resetSelectValueItem();
 };
 
 handleClickSelectValue = (e) => {
