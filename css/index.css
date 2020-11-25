@@ -15,6 +15,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 100%;
+  background: linear-gradient(0.25turn, #ff512f, #dd2476);
 }
 
 body .main-colume {
